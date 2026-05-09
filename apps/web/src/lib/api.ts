@@ -55,12 +55,22 @@ export class HttpError extends Error {
   }
 }
 
-async function http<T>(method: string, url: string, body?: unknown): Promise<T> {
+interface HttpOptions {
+  signal?: AbortSignal;
+}
+
+async function http<T>(
+  method: string,
+  url: string,
+  body?: unknown,
+  opts?: HttpOptions,
+): Promise<T> {
   const res = await fetch(url, {
     method,
     headers: body ? { "content-type": "application/json" } : undefined,
     body: body ? JSON.stringify(body) : undefined,
     credentials: "include",
+    signal: opts?.signal,
   });
   if (!res.ok) {
     const text = await res.text().catch(() => "");
@@ -107,14 +117,16 @@ export const api = {
       assigneeId?: number | null;
     },
   ) => http<Bug>("PATCH", `/api/bugs/${id}`, patch),
-  suggestTitle: (what: string) =>
-    http<{ title: string }>("POST", "/api/ai/title", { what }),
-  suggestTags: (text: string) =>
-    http<{ tags: string[] }>("POST", "/api/ai/tags", { text }),
-  summary: (input: { title: string; what: string; additionalReports?: string[] }) =>
-    http<{ summary: string }>("POST", "/api/ai/summary", input),
-  suggestSeverity: (text: string) =>
-    http<{ severity: Severity | null }>("POST", "/api/ai/severity", { text }),
+  suggestTitle: (what: string, signal?: AbortSignal) =>
+    http<{ title: string }>("POST", "/api/ai/title", { what }, { signal }),
+  suggestTags: (text: string, signal?: AbortSignal) =>
+    http<{ tags: string[] }>("POST", "/api/ai/tags", { text }, { signal }),
+  summary: (
+    input: { title: string; what: string; additionalReports?: string[] },
+    signal?: AbortSignal,
+  ) => http<{ summary: string }>("POST", "/api/ai/summary", input, { signal }),
+  suggestSeverity: (text: string, signal?: AbortSignal) =>
+    http<{ severity: Severity | null }>("POST", "/api/ai/severity", { text }, { signal }),
   dashboardStats: () => http<DashboardStats>("GET", "/api/stats/dashboard"),
   login: (email: string, password: string, remember: boolean) =>
     http<{ user: User }>("POST", "/api/auth/login", { email, password, remember }),

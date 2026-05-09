@@ -29,23 +29,22 @@ export function BugDetail() {
     const additionalReports = bugs
       .filter((b) => b.duplicateOf === bug.id)
       .map((d) => d.what);
-    let cancelled = false;
+    const ctrl = new AbortController();
     setSummary("");
     setSummaryLoading(true);
     api
-      .summary({ title: bug.title, what: bug.what, additionalReports })
+      .summary({ title: bug.title, what: bug.what, additionalReports }, ctrl.signal)
       .then((r) => {
-        if (!cancelled) setSummary(r.summary || "");
+        if (!ctrl.signal.aborted) setSummary(r.summary || "");
       })
-      .catch(() => {
-        if (!cancelled) setSummary("");
+      .catch((err) => {
+        if (err?.name === "AbortError") return;
+        setSummary("");
       })
       .finally(() => {
-        if (!cancelled) setSummaryLoading(false);
+        if (!ctrl.signal.aborted) setSummaryLoading(false);
       });
-    return () => {
-      cancelled = true;
-    };
+    return () => ctrl.abort();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bug?.id, dupCountForBug]);
 
