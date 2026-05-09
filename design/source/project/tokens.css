@@ -1,0 +1,194 @@
+/* iConnections Brand Design System — Tokens
+ * Source: iConnections Marketing Brand Design System (Figma)
+ * Foundations: Color, Typography, Spacing, Radii, Shadows, Patterns
+ */
+
+/* Inter — variable font carries all weights 100–900, both axes.
+ * The Inter-Variable.ttf upload covers both upright and italic via the slnt axis.
+ * Static OTFs (Inter-Regular.otf, Inter-Bold.otf, …) are bundled as fallbacks. */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Variable.ttf") format("truetype-variations"),
+       url("fonts/Inter-Regular.otf") format("opentype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Variable.ttf") format("truetype-variations"),
+       url("fonts/Inter-Italic.otf") format("opentype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+/* Inter Tight — variable font primary; per-weight statics as fallback for
+ * any environment that doesn't support truetype-variations. */
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-Thin.ttf") format("truetype");          font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-ExtraLight.ttf") format("truetype");    font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-Light.ttf") format("truetype");         font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-Regular.ttf") format("truetype");       font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-Medium.ttf") format("truetype");        font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-SemiBold.ttf") format("truetype");      font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-Bold.ttf") format("truetype");          font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-ExtraBold.ttf") format("truetype");     font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-Black.ttf") format("truetype");         font-weight: 900; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-Italic-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-ThinItalic.ttf") format("truetype");       font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-Italic-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-ExtraLightItalic.ttf") format("truetype"); font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-Italic-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-LightItalic.ttf") format("truetype");      font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-Italic-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-Italic.ttf") format("truetype");           font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-Italic-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-MediumItalic.ttf") format("truetype");     font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-Italic-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-SemiBoldItalic.ttf") format("truetype");   font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-Italic-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-BoldItalic.ttf") format("truetype");       font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-Italic-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-ExtraBoldItalic.ttf") format("truetype");  font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-Italic-VariableFont_wght.ttf") format("truetype-variations"), url("fonts/InterTight-BlackItalic.ttf") format("truetype");      font-weight: 900; font-style: italic; font-display: swap; }
+
+:root {
+  /* ───── Brand Purple ───── */
+  --purple-50:  #F0EAF2;
+  --purple-100: #DCC9E0;
+  --purple-200: #C4A3CC;
+  --purple-300: #AB7DB7;
+  --purple-400: #8C4F9A;
+  --purple-500: #692B7E;   /* primary brand purple */
+  --purple-600: #571F69;
+  --purple-700: #461755;
+  --purple-800: #361040;
+  --purple-900: #200825;
+
+  /* ───── Neutral (Slate) ───── */
+  --neutral-50:  #F8FAFC;
+  --neutral-100: #F1F5F9;
+  --neutral-200: #E2E8F0;
+  --neutral-300: #CBD5E1;
+  --neutral-400: #94A3B8;
+  --neutral-500: #64748B;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1E293B;
+  --neutral-900: #0F172A;
+
+  /* ───── Basic ───── */
+  --basic-50: #FFFFFF;
+  --basic-900: #000000;
+
+  /* ───── Semantic surfaces ───── */
+  --surface: var(--basic-50);
+  --surface-muted: var(--neutral-100);
+  --surface-inverse: var(--neutral-900);
+  --ink: var(--neutral-700);
+  --ink-strong: var(--neutral-800);
+  --ink-muted: var(--neutral-500);
+  --ink-on-purple: #FFFFFF;
+  --border: var(--neutral-200);
+  --border-strong: var(--neutral-300);
+  --accent: var(--purple-500);
+  --accent-hover: var(--purple-600);
+
+  /* ───── Type ───── */
+  --font-sans: "Inter", "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Inter Tight", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Display + heading scale (px) */
+  --fs-display-xl: 80px;   --lh-display-xl: 1;
+  --fs-display:    64px;   --lh-display:    1;
+  --fs-h1:         48px;   --lh-h1:         1;
+  --fs-h2:         40px;   --lh-h2:         1;
+  --fs-h3:         32px;   --lh-h3:         1.2;
+  --fs-h4:         28px;   --lh-h4:         36px;
+  --fs-h5:         24px;   --lh-h5:         32px;
+  --fs-h6:         20px;   --lh-h6:         28px;
+  --fs-body-lg:    18px;   --lh-body-lg:    28px;
+  --fs-body:       16px;   --lh-body:       24px;
+  --fs-body-sm:    14px;   --lh-body-sm:    20px;
+  --fs-caption:    12px;   --lh-caption:    16px;
+
+  /* Weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-eyebrow: 0.12em;
+
+  /* ───── Spacing — multiples of 8 ───── */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 40px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 112px;
+
+  /* ───── Radii ───── */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 40px;
+  --radius-pill: 999px;
+
+  /* ───── Shadows ───── */
+  /* Light backgrounds */
+  --shadow-light-sm: 0 0 40px 0 rgba(71, 85, 105, 0.10);
+  --shadow-light-md: 0 0 80px 0 rgba(71, 85, 105, 0.20);
+  --shadow-card-light: 0 40px 200px 0 rgba(100, 116, 139, 0.20),
+                      0 40px 120px 0 rgba(100, 116, 139, 0.20);
+  /* Dark backgrounds */
+  --shadow-dark-sm: 0 0 40px 0 rgba(15, 23, 42, 0.40);
+  --shadow-dark-md: 0 0 80px 0 rgba(15, 23, 42, 1.00);
+  --shadow-card-dark: 0 40px 200px 0 rgba(0, 0, 0, 0.20),
+                     0 40px 120px 0 rgba(0, 0, 0, 0.20);
+
+  /* ───── Gradients ───── */
+  --gradient-purple-radial:
+    radial-gradient(120% 90% at 20% 10%, var(--purple-400) 0%, var(--purple-600) 45%, var(--purple-900) 100%);
+  --gradient-purple-linear:
+    linear-gradient(135deg, var(--purple-500) 0%, var(--purple-900) 100%);
+  --gradient-purple-deep:
+    linear-gradient(180deg, var(--purple-700) 0%, #000 100%);
+  --gradient-card-dark:
+    linear-gradient(180deg, rgba(105, 43, 126, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+
+  /* ───── Backdrops ───── */
+  --backdrop-blur: blur(200px);
+}
+
+/* ───── Base ───── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--ink);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Utility type ramps */
+.t-display-xl { font-family: var(--font-display); font-size: var(--fs-display-xl); line-height: var(--lh-display-xl); font-weight: var(--fw-bold); letter-spacing: var(--tracking-tight); color: var(--ink-strong); }
+.t-display    { font-family: var(--font-display); font-size: var(--fs-display);    line-height: var(--lh-display);    font-weight: var(--fw-bold); letter-spacing: var(--tracking-tight); color: var(--ink-strong); }
+.t-h1         { font-size: var(--fs-h1);         line-height: var(--lh-h1);         font-weight: var(--fw-bold); color: var(--ink-strong); }
+.t-h2         { font-size: var(--fs-h2);         line-height: var(--lh-h2);         font-weight: var(--fw-bold); color: var(--ink-strong); }
+.t-h3         { font-size: var(--fs-h3);         line-height: var(--lh-h3);         font-weight: var(--fw-bold); color: var(--ink-strong); }
+.t-h4         { font-size: var(--fs-h4);         line-height: var(--lh-h4);         font-weight: var(--fw-bold); color: var(--ink-strong); }
+.t-h5         { font-size: var(--fs-h5);         line-height: var(--lh-h5);         font-weight: var(--fw-semibold); color: var(--ink-strong); }
+.t-h6         { font-size: var(--fs-h6);         line-height: var(--lh-h6);         font-weight: var(--fw-semibold); color: var(--ink-strong); }
+.t-body-lg    { font-size: var(--fs-body-lg);    line-height: var(--lh-body-lg);    font-weight: var(--fw-regular); }
+.t-body       { font-size: var(--fs-body);       line-height: var(--lh-body);       font-weight: var(--fw-regular); }
+.t-body-sm    { font-size: var(--fs-body-sm);    line-height: var(--lh-body-sm);    font-weight: var(--fw-regular); }
+.t-caption    { font-size: var(--fs-caption);    line-height: var(--lh-caption);    font-weight: var(--fw-regular); color: var(--ink-muted); }
+.t-eyebrow    { font-size: var(--fs-caption);    line-height: 1; font-weight: var(--fw-bold); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--accent); }

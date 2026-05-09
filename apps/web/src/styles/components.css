@@ -1,0 +1,159 @@
+/* iConnections — Component primitives
+ * Buttons, tags, cards, dividers, inputs
+ */
+
+/* ───── Buttons ───── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body);
+  line-height: 1;
+  padding: 14px 24px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease, transform 80ms ease;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn--primary {
+  background: var(--purple-500);
+  color: var(--ink-on-purple);
+}
+.btn--primary:hover { background: var(--purple-600); }
+
+.btn--secondary {
+  background: var(--neutral-900);
+  color: #fff;
+}
+.btn--secondary:hover { background: var(--neutral-800); }
+
+.btn--outline {
+  background: transparent;
+  color: var(--purple-500);
+  border-color: var(--purple-500);
+}
+.btn--outline:hover { background: var(--purple-50); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink-strong);
+}
+.btn--ghost:hover { background: var(--neutral-100); }
+
+.btn--on-dark.btn--outline {
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+.btn--on-dark.btn--outline:hover { background: rgba(255,255,255,0.08); border-color: #fff; }
+
+.btn--lg { font-size: var(--fs-body-lg); padding: 18px 32px; }
+.btn--sm { font-size: var(--fs-body-sm); padding: 10px 18px; }
+
+/* ───── Tag / pill ───── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.tag--purple { background: var(--purple-50); color: var(--purple-600); }
+.tag--purple-solid {
+  background: linear-gradient(135deg, var(--purple-400), var(--purple-700));
+  color: #fff;
+}
+.tag--neutral { background: var(--neutral-100); color: var(--neutral-700); }
+.tag--dark { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+.tag::before {
+  content: "";
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: 0.85;
+}
+
+/* ───── Card ───── */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  padding: 32px;
+}
+.card--elevated {
+  box-shadow: var(--shadow-light-md);
+  border-color: transparent;
+}
+.card--glass-dark {
+  background: rgba(241, 245, 249, 0.10);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  color: #fff;
+  box-shadow: var(--shadow-card-dark);
+}
+.card--glass-light {
+  background: rgba(241, 245, 249, 0.40);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: var(--shadow-card-light);
+}
+.card--purple {
+  background: var(--gradient-card-dark), var(--purple-700);
+  background-blend-mode: normal;
+  color: #fff;
+  border: 1px solid rgba(240, 234, 242, 0.3);
+  box-shadow: var(--shadow-card-dark);
+}
+
+/* ───── Dividers ───── */
+.divider { height: 1px; background: var(--border-strong); border: 0; margin: 0; }
+.divider--dark { background: rgba(255,255,255,0.15); }
+
+/* ───── Input ───── */
+.input {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--ink-strong);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.input::placeholder { color: var(--ink-muted); }
+.input:focus { outline: none; border-color: var(--purple-500); box-shadow: 0 0 0 4px rgba(105, 43, 126, 0.15); }
+
+/* ───── Big number stat ───── */
+.stat { display: flex; flex-direction: column; gap: 8px; }
+.stat__num {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  line-height: 1.125;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--neutral-600);
+}
+.stat__label {
+  font-size: var(--fs-h6);
+  line-height: var(--lh-h6);
+  color: var(--neutral-500);
+}
+.card--purple .stat__num,
+.card--glass-dark .stat__num { color: #fff; }
+.card--purple .stat__label,
+.card--glass-dark .stat__label { color: rgba(255,255,255,0.75); }
