@@ -21,6 +21,10 @@ services:
   ollama:
     image: ollama/ollama:latest
     restart: unless-stopped
+    environment:
+      # Keep models pinned in RAM so the first call after idle isn't a 5-15s
+      # cold-load. Default is 5m which makes demos feel sluggish.
+      OLLAMA_KEEP_ALIVE: ${OLLAMA_KEEP_ALIVE:-24h}
     ports:
       - "11434:11434"
     volumes:
